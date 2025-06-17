@@ -1,0 +1,37 @@
+[project]
+name = "torch-tutorial"
+version = "0.1.0"
+description = "A simple project built as part of learning pytorch framework"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "torch>=2.7.1",
+    "torchaudio>=2.7.1",
+    "torchvision>=0.22.1",
+]
+
+[tool.uv]
+required-environments = [
+    "sys_platform == 'win32' and platform_system == 'Windows' and platform_machine == 'x86_64'"
+]
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cu128" }
+]
+torchvision = [
+    { index = "pytorch-cu128" }
+]
+torchaudio = [
+    { index = "pytorch-cu128" }
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.29.5",
+]
